@@ -11,7 +11,7 @@ const projects = [
       "Built superbdiamonds.in using React.js + Node.js with inventory control, certificate checks, and broker workflows. Trained ElasticNet regression on 20 years of RapNet data for diamond price prediction.",
     tech: ["React.js", "Node.js", "AWS", "Flask", "ElasticNet", "CDN"],
     link: "https://superbdiamonds.in",
-    github: "https://github.com/Krish020902/SuperbDiamonds",
+    github: "https://github.com/krishmm02/SuperbDiamonds",
   },
   {
     title: "MelodyMind",
@@ -20,7 +20,7 @@ const projects = [
     description:
       "Transformer-based NLP models (BERT/GPT variants) generating therapeutic music from emotional embeddings. Biometric-to-musical parameter conversion for real-time therapeutic adjustments.",
     tech: ["Transformers", "Flask", "React.js", "NLP", "BERT", "PyTorch"],
-    github: "https://github.com/Krish020902/MelodyMind",
+    github: "https://github.com/krishmm02/MelodyMind",
   },
   {
     title: "VoyagR",
@@ -29,7 +29,7 @@ const projects = [
     description:
       "Travel matching app using Gale-Shapley stable marriage algorithm to pair users by budget, destination, and preferences. Real-time chat with Socket.IO for collaborative trip planning.",
     tech: ["React", "Socket.IO", "Node.js", "Algorithms"],
-    github: "https://github.com/Krish020902/VoyagR",
+    github: "https://github.com/krishmm02/VoyagR",
   },
   {
     title: "Anode Lifecycle Classifier",
@@ -38,7 +38,7 @@ const projects = [
     description:
       "CNN-based classifier achieving 92% accuracy for anode lifecycle stages. Automated data preprocessing, augmentation pipelines, and real-time monitoring dashboards.",
     tech: ["TensorFlow", "Keras", "Flask", "CNN", "Python"],
-    github: "https://github.com/Krish020902/Anode-Lifecycle-Classifier",
+    github: "https://github.com/krishmm02/Anode-Lifecycle-Classifier",
   },
 ];
 

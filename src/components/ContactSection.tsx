@@ -38,13 +38,13 @@ export default function ContactSection() {
               (667) 431-6543
             </a>
             <a
-              href="https://github.com/Krish020902"
+              href="https://github.com/krishmm02"
               target="_blank"
               rel="noopener noreferrer"
               className="glass px-6 py-3 rounded-full flex items-center gap-2 text-sm text-foreground hover:border-primary/50 hover:card-glow transition-all duration-300"
             >
               <Github size={16} className="text-primary" />
-              Krish020902
+              krishmm02
             </a>
             <span className="glass px-6 py-3 rounded-full flex items-center gap-2 text-sm text-muted-foreground">
               <MapPin size={16} className="text-primary" />

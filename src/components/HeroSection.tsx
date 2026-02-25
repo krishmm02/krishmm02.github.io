@@ -59,7 +59,7 @@ export default function HeroSection() {
           className="flex flex-wrap items-center justify-center gap-4 mb-6"
         >
           <a
-            href="https://github.com/Krish020902"
+            href="https://github.com/krishmm02"
             target="_blank"
             rel="noopener noreferrer"
             className="glass px-5 py-2.5 rounded-full flex items-center gap-2 text-sm text-foreground hover:border-primary/50 hover:card-glow transition-all duration-300"
