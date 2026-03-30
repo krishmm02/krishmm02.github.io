@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Layers, Brain, Music, Users } from "lucide-react";
+import { ExternalLink, Github, Layers, Brain, Music, Users, Gamepad2 } from "lucide-react";
 
 const projects = [
   {
@@ -30,6 +30,16 @@ const projects = [
       "Travel matching app using Gale-Shapley stable marriage algorithm to pair users by budget, destination, and preferences. Real-time chat with Socket.IO for collaborative trip planning.",
     tech: ["React", "Socket.IO", "Node.js", "Algorithms"],
     github: "https://github.com/krishmm02/VoyagR",
+  },
+  {
+    title: "Star Wars Game",
+    subtitle: "Interactive Web Game",
+    icon: Gamepad2,
+    description:
+      "Retro 2D Star Wars-themed browser game with classic arcade-style gameplay. Features a CPU opponent powered by AI logic, allowing solo play against the computer. Fully playable in the browser with no installation required.",
+    tech: ["JavaScript", "TypeScript", "HTML", "CSS", "Node.js"],
+    link: "https://may-the-force-be-with-you.app.space/",
+    github: "https://github.com/krishmm02/Star_Wars_Game",
   },
   {
     title: "Anode Lifecycle Classifier",
