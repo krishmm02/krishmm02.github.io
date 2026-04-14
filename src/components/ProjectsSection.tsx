@@ -109,7 +109,7 @@ export default function ProjectsSection() {
 
               <h4 className="text-lg font-semibold text-foreground mb-1">{project.title}</h4>
               <p className="font-mono text-xs text-primary/80 mb-3">{project.subtitle}</p>
-              <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
+              <p className="text-base text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
 
               <div className="flex flex-wrap gap-2">
                 {project.tech.map((t) => (

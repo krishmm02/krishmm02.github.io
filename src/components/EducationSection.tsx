@@ -7,20 +7,25 @@ const education = [
     school: "University of Maryland, Baltimore County",
     degree: "Master of Science in Computer Science",
     period: "Expected May 2027",
+    gpa: "GPA: 4.0 / 4.0",
     icon: GraduationCap,
   },
   {
     school: "Birla Vishvakarma Mahavidyalaya",
     degree: "B.Tech in Information Technology",
-    period: "May 2025 • CPI: 8.46/10",
+    period: "May 2025",
+    gpa: "CPI: 8.46 / 10",
     icon: BookOpen,
   },
 ];
 
 const publications = [
-  "Published review paper in WJAETS: ML Solutions for Adaptive Traffic Signal Control",
-  "Research paper on ML for Automated Anode Grading in Mining",
-  "Research paper on VoyagR: Stable Matching based on travel preferences",
+  {
+    text: "Published review paper in WJAETS: ML Solutions for Adaptive Traffic Signal Control",
+    link: "https://wjaets.com/content/machine-learning-solutions-adaptive-traffic-signal-control-review-image-based-approaches",
+  },
+  { text: "Research paper on ML for Automated Anode Grading in Mining", link: null },
+  { text: "Research paper on VoyagR: Stable Matching based on travel preferences", link: null },
 ];
 
 export default function EducationSection() {
@@ -54,6 +59,7 @@ export default function EducationSection() {
               <h4 className="text-lg font-semibold text-foreground mb-1">{edu.school}</h4>
               <p className="text-sm text-primary font-mono mb-1">{edu.degree}</p>
               <p className="text-xs text-muted-foreground">{edu.period}</p>
+              <p className="text-xs font-mono text-accent mt-1">{edu.gpa}</p>
             </motion.div>
           ))}
         </div>
@@ -67,9 +73,20 @@ export default function EducationSection() {
           <h4 className="font-mono text-primary text-xs tracking-wider uppercase mb-4">Publications & Research</h4>
           <ul className="space-y-3">
             {publications.map((pub, i) => (
-              <li key={i} className="text-sm text-muted-foreground flex gap-2">
+              <li key={i} className="text-base text-muted-foreground flex gap-2">
                 <span className="text-accent mt-0.5 shrink-0">◆</span>
-                {pub}
+                {pub.link ? (
+                  <a
+                    href={pub.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors underline underline-offset-2"
+                  >
+                    {pub.text}
+                  </a>
+                ) : (
+                  pub.text
+                )}
               </li>
             ))}
           </ul>

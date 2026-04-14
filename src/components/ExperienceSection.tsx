@@ -94,7 +94,7 @@ export default function ExperienceSection() {
                   </div>
                   <ul className="space-y-2">
                     {exp.points.map((point, j) => (
-                      <li key={j} className="text-sm text-muted-foreground flex gap-2">
+                      <li key={j} className="text-base text-muted-foreground flex gap-2">
                         <span className="text-primary mt-1 shrink-0">▹</span>
                         {point}
                       </li>

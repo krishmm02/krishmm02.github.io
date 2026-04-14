@@ -3,7 +3,8 @@
     "allow": [
       "WebFetch(domain:github.com)",
       "WebFetch(domain:may-the-force-be-with-you.app.space)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(npx tsc:*)"
     ]
   }
 }
