@@ -15,7 +15,7 @@ function FloatingIcosahedron() {
   return (
     <Float speed={2} rotationIntensity={0.5} floatIntensity={1.5}>
       <mesh ref={meshRef} position={[0, 0, 0]} scale={1.8}>
-        <icosahedronGeometry args={[1, 1]} />
+        <icosahedronGeometry args={[1, 0]} />
         <MeshDistortMaterial
           color="#22d3ee"
           emissive="#22d3ee"
@@ -41,7 +41,7 @@ function FloatingTorus({ position, color, scale }: { position: [number, number, 
   return (
     <Float speed={1.5} rotationIntensity={1} floatIntensity={2}>
       <mesh ref={meshRef} position={position} scale={scale}>
-        <torusGeometry args={[1, 0.3, 16, 32]} />
+        <torusGeometry args={[1, 0.3, 8, 24]} />
         <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.2} wireframe />
       </mesh>
     </Float>
@@ -49,7 +49,7 @@ function FloatingTorus({ position, color, scale }: { position: [number, number, 
 }
 
 function Particles() {
-  const count = 500;
+  const count = 120;
   const positions = useMemo(() => {
     const pos = new Float32Array(count * 3);
     for (let i = 0; i < count * 3; i++) {
@@ -79,7 +79,7 @@ function Particles() {
 export default function Scene3D() {
   return (
     <div className="absolute inset-0 z-0">
-      <Canvas camera={{ position: [0, 0, 6], fov: 60 }} dpr={[1, 1.5]}>
+      <Canvas camera={{ position: [0, 0, 6], fov: 60 }} dpr={1}>
         <ambientLight intensity={0.2} />
         <pointLight position={[10, 10, 10]} intensity={0.8} color="#22d3ee" />
         <pointLight position={[-10, -10, -10]} intensity={0.4} color="#a855f7" />
@@ -87,7 +87,7 @@ export default function Scene3D() {
         <FloatingTorus position={[-3.5, 2, -2]} color="#a855f7" scale={0.5} />
         <FloatingTorus position={[3.5, -1.5, -3]} color="#22d3ee" scale={0.4} />
         <Particles />
-        <Stars radius={50} depth={50} count={1000} factor={3} saturation={0} fade speed={1} />
+        <Stars radius={50} depth={50} count={300} factor={3} saturation={0} fade speed={1} />
         <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.3} />
       </Canvas>
     </div>

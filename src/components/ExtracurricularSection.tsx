@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Award, BookOpen, Users } from "lucide-react";
+import { Award, BookOpen, Users, Globe } from "lucide-react";
 
 const activities = [
   {
@@ -38,6 +38,20 @@ const activities = [
       "Provided academic and personal support to second-year students, helping them navigate challenging courses like Data Structures and Algorithms.",
       "Fostered a positive learning environment by breaking down complex problems and building student confidence.",
       "Guided students in competitive programming strategies, with 20% of mentees reaching Master level on Codeforces.",
+    ],
+  },
+  {
+    role: "Head Web Developer",
+    org: "The Robotic Society (TRS) · BVM Engineering College",
+    period: "2021 – 2022",
+    icon: Globe,
+    tag: "Leadership",
+    tagColor: "text-green-400 bg-green-400/10 border-green-400/20",
+    link: "https://www.bvmengineering.ac.in/TRS/2021-2022/webdevloper.html",
+    points: [
+      "Led web development for TRS, overseeing the society's digital presence and managing the full membership and event data pipeline.",
+      "Architected and maintained the society's recruitment portal, streamlining candidate intake and selection workflows for annual drives.",
+      "Owned all website updates, feature additions, and incident response — ensuring zero downtime during high-traffic recruitment and event periods.",
     ],
   },
 ];
@@ -80,7 +94,20 @@ export default function ExtracurricularSection() {
                     <h4 className="text-lg font-semibold text-foreground leading-tight">
                       {act.role}
                     </h4>
-                    <p className="text-primary text-sm font-mono mt-0.5">{act.org}</p>
+                    <p className="text-primary text-sm font-mono mt-0.5">
+                      {act.link ? (
+                        <a
+                          href={act.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:underline underline-offset-2"
+                        >
+                          {act.org}
+                        </a>
+                      ) : (
+                        act.org
+                      )}
+                    </p>
                   </div>
                 </div>
                 <div className="flex flex-col items-start sm:items-end gap-1.5 shrink-0">

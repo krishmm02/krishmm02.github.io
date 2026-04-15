@@ -1,8 +1,25 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Github, Mail, MapPin, ChevronDown } from "lucide-react";
+import { useState, useEffect } from "react";
 import profileImg from "@/assets/profile.jpg";
 
+const titles = [
+  "Software Development Engineer",
+  "Full-Stack Engineer",
+  "ML & AI Engineer",
+  "Cloud Backend Engineer",
+];
+
 export default function HeroSection() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((i) => (i + 1) % titles.length);
+    }, 2800);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4">
       <div className="relative z-10 text-center max-w-4xl mx-auto">
@@ -23,21 +40,32 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
+        {/* Cycling title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
+          className="h-6 md:h-7 flex items-center justify-center mb-4 overflow-hidden"
         >
-          <p className="font-mono text-primary text-sm md:text-base tracking-widest uppercase mb-4">
-            Software Development Engineer
-          </p>
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={titles[index]}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.35, ease: "easeInOut" }}
+              className="font-mono text-primary text-sm md:text-base tracking-widest uppercase"
+            >
+              {titles[index]}
+            </motion.p>
+          </AnimatePresence>
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-4xl sm:text-6xl md:text-7xl font-bold mb-4 text-glow gradient-text"
+          className="text-4xl sm:text-6xl md:text-7xl font-bold mb-4 text-glow gradient-text font-mono tracking-tight"
         >
           Krish Mehta
         </motion.h1>

@@ -1,6 +1,6 @@
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
 import Navbar from "@/components/Navbar";
-import Scene3D from "@/components/Scene3D";
+const Scene3D = lazy(() => import("@/components/Scene3D"));
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import SkillsSection from "@/components/SkillsSection";

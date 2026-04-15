@@ -15,34 +15,30 @@ export default function AboutSection() {
 
   return (
     <section id="about" className="py-24 px-4 relative" ref={ref}>
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
         >
-          {/* Left: text */}
-          <div>
-            <h2 className="font-mono text-primary text-sm tracking-widest uppercase mb-2">About</h2>
-            <h3 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-              Building the <span className="gradient-text">future</span>, one system at a time
-            </h3>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-              Software Development Engineer pursuing an MS in Computer Science at the University of Maryland,
-              Baltimore County. Experienced in designing cloud-based backend services, distributed systems,
-              and REST APIs on AWS, with a deep interest in machine learning and computer vision.
-              Strong foundation in data structures, algorithms, and object-oriented design.
-            </p>
-          </div>
+          <h2 className="font-mono text-primary text-sm tracking-widest uppercase mb-2">About</h2>
+          <h3 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
+            Building the <span className="gradient-text">future</span>, one system at a time
+          </h3>
+          <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
+            Software Development Engineer pursuing an MS in Computer Science at the University of Maryland,
+            Baltimore County. Experienced in designing cloud-based backend services, distributed systems,
+            and REST APIs on AWS, with a deep interest in machine learning and computer vision.
+            Strong foundation in data structures, algorithms, and object-oriented design.
+          </p>
 
-          {/* Right: stats */}
-          <div className="grid grid-cols-3 lg:grid-cols-1 gap-4">
+          {/* Stats row */}
+          <div className="grid grid-cols-3 gap-4 mt-10">
             {stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, x: 20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
                 className="glass rounded-xl p-5 text-center card-glow"
               >
