@@ -14,25 +14,26 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" className="py-24 px-4 relative" ref={ref}>
-      <div className="max-w-3xl mx-auto">
+    <section id="about" className="py-28 px-4 relative" ref={ref}>
+      <div className="absolute inset-0 bg-aurora opacity-30 pointer-events-none" />
+      <div className="max-w-3xl mx-auto relative">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="font-mono text-primary text-sm tracking-widest uppercase mb-2">About</h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-            Building the <span className="gradient-text">future</span>, one system at a time
-          </h3>
-          <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary/80 mb-3">About</p>
+          <h2 className="font-display text-4xl md:text-5xl leading-[1.05] mb-6">
+            Building the <em className="gradient-text not-italic">future</em>,{" "}
+            <br className="hidden sm:block" />one system at a time.
+          </h2>
+          <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
             Software Development Engineer pursuing an MS in Computer Science at the University of Maryland,
             Baltimore County. Experienced in designing cloud-based backend services, distributed systems,
             and REST APIs on AWS, with a deep interest in machine learning and computer vision.
             Strong foundation in data structures, algorithms, and object-oriented design.
           </p>
 
-          {/* Stats row */}
           <div className="grid grid-cols-3 gap-4 mt-10">
             {stats.map((stat, i) => (
               <motion.div
@@ -44,7 +45,7 @@ export default function AboutSection() {
               >
                 <stat.icon className="mx-auto mb-2 text-primary" size={22} />
                 <p className="text-2xl font-bold text-foreground mb-0.5">{stat.value}</p>
-                <p className="text-xs text-muted-foreground">{stat.label}</p>
+                <p className="text-xs text-muted-foreground font-mono">{stat.label}</p>
               </motion.div>
             ))}
           </div>

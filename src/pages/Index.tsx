@@ -1,6 +1,5 @@
 import { Suspense, lazy } from "react";
 import Navbar from "@/components/Navbar";
-const Scene3D = lazy(() => import("@/components/Scene3D"));
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import SkillsSection from "@/components/SkillsSection";
@@ -15,14 +14,8 @@ const Index = () => {
     <div className="relative min-h-screen bg-background overflow-x-hidden scroll-smooth">
       <Navbar />
 
-      {/* 3D Background - fixed behind hero */}
-      <div className="fixed inset-0 z-0">
-        <Suspense fallback={null}>
-          <Scene3D />
-        </Suspense>
-      </div>
-
-      {/* Content overlay */}
+      {/* Scene3D now lives inside HeroSection so canvas + text share the same
+          stacking context, making mix-blend-mode work against the actual blob pixels. */}
       <div className="relative z-10">
         <HeroSection />
 

@@ -52,22 +52,22 @@ export default function ExperienceSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="experience" className="py-24 px-4 relative" ref={ref}>
-      <div className="max-w-5xl mx-auto">
+    <section id="experience" className="py-28 px-4 relative" ref={ref}>
+      <div className="absolute inset-0 bg-aurora opacity-20 pointer-events-none" />
+      <div className="max-w-5xl mx-auto relative">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="font-mono text-primary text-sm tracking-widest uppercase mb-2">Experience</h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-12 text-foreground">
-            Where I've <span className="gradient-text">worked</span>
-          </h3>
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary/80 mb-3">Experience</p>
+          <h2 className="font-display text-4xl md:text-5xl leading-[1.05] mb-12">
+            Where I've <em className="gradient-text not-italic">shipped</em> things.
+          </h2>
         </motion.div>
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-accent/30 to-transparent" />
+          <div className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary/60 via-secondary/30 to-transparent" />
 
           <div className="space-y-10">
             {experiences.map((exp, i) => (
@@ -78,18 +78,17 @@ export default function ExperienceSection() {
                 transition={{ duration: 0.6, delay: 0.15 * i }}
                 className="relative pl-8 md:pl-20"
               >
-                {/* Timeline dot */}
                 <div className="absolute left-0 md:left-8 top-2 w-2.5 h-2.5 rounded-full bg-primary -translate-x-1 animate-pulse-glow" />
 
-                <div className="glass rounded-xl p-6 hover:border-primary/30 transition-all duration-300">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
+                <div className="glass rounded-xl p-6 hover:border-primary/30 transition-all duration-300 card-glow">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                     <div>
-                      <h4 className="text-lg font-semibold text-foreground">{exp.company}</h4>
-                      <p className="text-primary text-sm font-mono">{exp.role}</p>
+                      <h4 className="font-display text-xl text-foreground">{exp.company}</h4>
+                      <p className="text-primary text-sm font-mono mt-0.5">{exp.role}</p>
                     </div>
-                    <div className="text-right mt-1 sm:mt-0">
+                    <div className="text-right mt-2 sm:mt-0">
                       <p className="text-xs text-muted-foreground font-mono">{exp.period}</p>
-                      <p className="text-xs text-muted-foreground">{exp.location}</p>
+                      <p className="text-xs text-muted-foreground mt-0.5">{exp.location}</p>
                     </div>
                   </div>
                   <ul className="space-y-2">

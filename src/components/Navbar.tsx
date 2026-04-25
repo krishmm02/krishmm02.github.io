@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
 
 const links = [
   { label: "About", href: "#about" },
@@ -15,64 +14,88 @@ const links = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass">
-      <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-        <a href="#" className="font-bold text-lg gradient-text">
-          KM
-        </a>
+  const scrollTo = (href: string) => {
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    setOpen(false);
+  };
 
-        {/* Desktop */}
-        <div className="hidden md:flex items-center gap-6">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector(l.href)?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="text-sm text-muted-foreground hover:text-primary transition-colors font-mono"
-            >
-              {l.label}
-            </a>
-          ))}
+  return (
+    <header className="fixed top-0 inset-x-0 z-50">
+      <div className="max-w-5xl mx-auto px-4">
+        <div className="mt-4 flex items-center justify-between glass rounded-full pl-5 pr-2 py-2">
+          <a
+            href="#"
+            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+            className="flex items-center gap-2.5 group"
+          >
+            <span className="relative flex h-7 w-7 items-center justify-center">
+              <span className="absolute inset-0 rounded-full bg-gradient-bio blur-md opacity-70 group-hover:opacity-100 transition" />
+              <span className="relative h-3 w-3 rounded-full bg-gradient-bio animate-pulse-ring" />
+            </span>
+            <span className="font-display text-xl tracking-tight">KM</span>
+          </a>
+
+          <nav className="hidden md:flex items-center gap-6">
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={(e) => { e.preventDefault(); scrollTo(l.href); }}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors font-mono tracking-wide"
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
+
+          <a
+            href="#contact"
+            onClick={(e) => { e.preventDefault(); scrollTo("#contact"); }}
+            className="hidden md:inline-flex items-center gap-2 rounded-full bg-foreground text-background px-4 py-2 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors"
+          >
+            Say hi <span aria-hidden>→</span>
+          </a>
+
+          <button
+            onClick={() => setOpen((o) => !o)}
+            className="md:hidden p-2 rounded-full glass"
+            aria-label="Toggle menu"
+          >
+            <span className="block w-5 h-px bg-foreground mb-1.5" />
+            <span className="block w-5 h-px bg-foreground" />
+          </button>
         </div>
 
-        {/* Mobile toggle */}
-        <button onClick={() => setOpen(!open)} className="md:hidden text-foreground p-1">
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
-      </div>
-
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="md:hidden overflow-hidden glass border-t border-border/50"
-          >
-            <div className="px-4 py-4 flex flex-col gap-3">
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              initial={{ opacity: 0, y: -8, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.97 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden glass mt-2 rounded-2xl p-4 flex flex-col gap-3"
+            >
               {links.map((l) => (
                 <a
                   key={l.href}
                   href={l.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setOpen(false);
-                    document.querySelector(l.href)?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors font-mono py-1"
+                  onClick={(e) => { e.preventDefault(); scrollTo(l.href); }}
+                  className="text-sm text-muted-foreground hover:text-foreground font-mono py-1 transition-colors"
                 >
                   {l.label}
                 </a>
               ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
+              <a
+                href="#contact"
+                onClick={(e) => { e.preventDefault(); scrollTo("#contact"); }}
+                className="rounded-full bg-foreground text-background px-4 py-2 text-sm text-center font-medium"
+              >
+                Say hi →
+              </a>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </header>
   );
 }

@@ -16,12 +16,12 @@ const skillCategories = [
   },
   {
     title: "Backend & Cloud",
-    color: "#a855f7",
+    color: "#a78bfa",
     skills: ["Node.js", "Express.js", "Flask", "FastAPI", "AWS", "Docker", "Redis"],
   },
   {
     title: "ML & AI",
-    color: "#ec4899",
+    color: "#ff5e7a",
     skills: ["TensorFlow", "PyTorch", "Scikit-Learn", "CNNs", "Transformers", "YOLO"],
   },
   {
@@ -36,7 +36,6 @@ const skillCategories = [
   },
 ];
 
-/** Evenly distributes n points on a sphere using Fibonacci lattice */
 function fibonacciSphere(i: number, n: number, r: number): [number, number, number] {
   const phi = Math.acos(1 - (2 * (i + 0.5)) / n);
   const theta = Math.PI * (1 + Math.sqrt(5)) * i;
@@ -65,10 +64,7 @@ function SkillNode({
       <group position={position}>
         <mesh
           scale={hovered ? 1.7 : 1}
-          onPointerOver={(e) => {
-            e.stopPropagation();
-            setHovered(true);
-          }}
+          onPointerOver={(e) => { e.stopPropagation(); setHovered(true); }}
           onPointerOut={() => setHovered(false)}
         >
           <sphereGeometry args={[0.11, 20, 20]} />
@@ -80,7 +76,6 @@ function SkillNode({
             metalness={0.85}
           />
         </mesh>
-
         <Html center position={[0, -0.22, 0]} style={{ pointerEvents: "none" }}>
           <div
             style={{
@@ -107,13 +102,9 @@ function SkillNode({
 
 function SkillsCloud() {
   const skills = useMemo(
-    () =>
-      skillCategories.flatMap((cat) =>
-        cat.skills.map((skill) => ({ label: skill, color: cat.color }))
-      ),
+    () => skillCategories.flatMap((cat) => cat.skills.map((skill) => ({ label: skill, color: cat.color }))),
     []
   );
-
   return (
     <group>
       {skills.map((s, i) => (
@@ -134,23 +125,22 @@ export default function SkillsSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-24 px-4 relative" ref={ref}>
+    <section id="skills" className="py-28 px-4 relative" ref={ref}>
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="font-mono text-primary text-sm tracking-widest uppercase mb-2">Skills</h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-2 text-foreground">
-            Technical <span className="gradient-text">Arsenal</span>
-          </h3>
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary/80 mb-3">Skills</p>
+          <h2 className="font-display text-4xl md:text-5xl leading-[1.05] mb-2">
+            Technical <em className="gradient-text not-italic">Arsenal.</em>
+          </h2>
           <p className="text-muted-foreground/60 text-xs font-mono mb-8">
             Drag to orbit · Hover a node to highlight
           </p>
         </motion.div>
 
-        {/* 3D canvas */}
         <motion.div
           initial={{ opacity: 0, scale: 0.92 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -169,7 +159,7 @@ export default function SkillsSection() {
               <ambientLight intensity={0.35} />
               <pointLight position={[8, 8, 8]} intensity={1.2} color="#22d3ee" />
               <pointLight position={[-8, -8, -5]} intensity={0.7} color="#a855f7" />
-              <pointLight position={[0, -8, 4]} intensity={0.4} color="#ec4899" />
+              <pointLight position={[0, -8, 4]} intensity={0.4} color="#ff5e7a" />
               <SkillsCloud />
               <OrbitControls
                 enableZoom={false}
@@ -183,7 +173,6 @@ export default function SkillsSection() {
           </Suspense>
         </motion.div>
 
-        {/* Category legend */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -197,10 +186,7 @@ export default function SkillsSection() {
             >
               <span
                 className="w-2.5 h-2.5 rounded-full shrink-0"
-                style={{
-                  backgroundColor: cat.color,
-                  boxShadow: `0 0 7px ${cat.color}`,
-                }}
+                style={{ backgroundColor: cat.color, boxShadow: `0 0 7px ${cat.color}` }}
               />
               <span className="text-xs font-mono text-muted-foreground">{cat.title}</span>
             </div>
