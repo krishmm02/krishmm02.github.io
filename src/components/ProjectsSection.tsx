@@ -20,6 +20,7 @@ const projects = [
     description:
       "Transformer-based NLP models (BERT/GPT variants) generating therapeutic music from emotional embeddings. Biometric-to-musical parameter conversion for real-time therapeutic adjustments.",
     tech: ["Transformers", "Flask", "React.js", "NLP", "BERT", "PyTorch"],
+    link: "https://melodymind-waves.vercel.app/",
     github: "https://github.com/krishmm02/MelodyMind",
   },
   {
