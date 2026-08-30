@@ -43,7 +43,7 @@ const projects = [
     description:
       "Retro 2D Star Wars-themed browser game with classic arcade-style gameplay. Features a CPU opponent powered by AI logic, allowing solo play against the computer. Fully playable in the browser.",
     tech: ["JavaScript", "TypeScript", "HTML", "CSS", "Node.js"],
-    link: "https://may-the-force-be-with-you.app.space/",
+    link: "https://star-wars-fighting-game.netlify.app/",
     github: "https://github.com/krishmm02/Star_Wars_Game",
   },
   {
