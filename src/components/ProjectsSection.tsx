@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Layers, Brain, Music, Users, Gamepad2 } from "lucide-react";
+import { ExternalLink, Github, Layers, Brain, Music, Users, Gamepad2, Wallet } from "lucide-react";
 
 const projects = [
   {
@@ -45,6 +45,17 @@ const projects = [
     tech: ["JavaScript", "TypeScript", "HTML", "CSS", "Node.js"],
     link: "https://star-wars-fighting-game.netlify.app/",
     github: "https://github.com/krishmm02/Star_Wars_Game",
+  },
+  {
+    title: "MoneyTrack",
+    subtitle: "Personal Finance Tracker",
+    icon: Wallet,
+    accentColor: "#34d399",
+    description:
+      "A modern alternative to expense-tracking spreadsheets. Quick expense logging, customizable budget cycles, spend analytics against historical trends, and savings goal projections.",
+    tech: ["React", "TypeScript", "Auth", "Analytics"],
+    link: "https://moneytrack-app-614.netlify.app/",
+    github: "https://github.com/krishmm02/budget-buddy-app-288",
   },
   {
     title: "Anode Lifecycle Classifier",
