@@ -12,10 +12,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Instrument Serif", "ui-serif", "Georgia", "serif"],
-        body: ["Work Sans", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["Cormorant Garamond", "Georgia", "serif"],
         mono: ["JetBrains Mono", "ui-monospace", "monospace"],
-        sans: ["Work Sans", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["Manrope", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
